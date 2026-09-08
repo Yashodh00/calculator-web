@@ -1,0 +1,6 @@
+services:
+  calculator:
+    build: .
+    container_name: calculator-container
+    ports:
+      - "8090:8000"
