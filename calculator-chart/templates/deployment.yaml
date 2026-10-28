@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: calculator
+  labels:
+    app: calculator
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: calculator
+
+  template:
+    metadata:
+      labels:
+        app: calculator
+
+    spec:
+      containers:
+        - name: calculator
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+
+          volumeMounts:
+            - name: calculator-storage
+              mountPath: {{ .Values.persistence.mountPath }}
+
+      volumes:
+        - name: calculator-storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.claimName }}

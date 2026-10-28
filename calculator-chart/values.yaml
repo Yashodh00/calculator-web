@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: calculator-web
+  tag: "v1.0"
+  pullPolicy: Never
+
+containerPort: 8000
+
+persistence:
+  claimName: calculator-pvc
+  mountPath: /app/data
