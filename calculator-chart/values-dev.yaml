@@ -5,3 +5,5 @@ image:
   tag: "v1.0"
   pullPolicy: Never
 
+ingress:
+  enabled: false
