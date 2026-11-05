@@ -3,8 +3,6 @@ kind: Deployment
 
 metadata:
   name: calculator
-  labels:
-    app: calculator
 
 spec:
   replicas: {{ .Values.replicaCount }}

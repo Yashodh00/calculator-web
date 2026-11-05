@@ -1,0 +1,7 @@
+replicaCount: 3
+
+image:
+  repository: calculator-web
+  tag: "v1.0"
+  pullPolicy: Never
+
